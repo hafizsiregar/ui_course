@@ -1,4 +1,5 @@
 import 'package:course_app/themes/theme.dart';
+import 'package:course_app/widget/glassmorphism.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,8 +11,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+
+   final bool _isBlur = false;
+
   @override
   Widget build(BuildContext context) {
+
     TabController _tabController = TabController(length: 2, vsync: this);
 
     return Scaffold(
@@ -60,24 +65,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    suffixIcon: Icon(
-                      Icons.search,
-                      color: kGreyColor,
-                    ),
-                    hintText: 'Search Course, Educators...',
-                    hintStyle: GoogleFonts.poppins(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: kGreyColor,
-                    ),
-                    fillColor: kSecondaryColor,
-                    filled: true,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
+                child: GlassMorphism(
+                  blur: _isBlur ? 20 : 0,
+                  opacity: 0.2,
                 ),
               ),
               Container(
@@ -326,7 +316,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

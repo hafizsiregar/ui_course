@@ -15,6 +15,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
 
+  final bool glow = false;
   int _currentIndex = 0;
   final List<Widget> _pages = [
     HomePage(),
@@ -57,24 +58,20 @@ class _MainPageState extends State<MainPage> {
           showUnselectedLabels: true,
         items: [
           BottomNavigationBarItem(
-            backgroundColor: kPrimaryColor,
-            icon: Icon(Icons.home),
-            title: Text('Home'),
+            icon: _currentIndex == 0 ? shadowHome : Icon(Icons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            backgroundColor: kPrimaryColor,
-            icon: Icon(Icons.category),
-            title: Text('Categories'),
+            icon: _currentIndex == 1 ? shadowCategory : Icon(Icons.category),
+            label: 'Categries'
           ),
           BottomNavigationBarItem(
-            backgroundColor: kPrimaryColor,
-            icon: Icon(Icons.favorite_sharp),
-            title: Text('Saved'),
+            icon: _currentIndex == 2 ? shadowSaved : Icon(Icons.favorite),
+            label: 'Saved',
           ),
           BottomNavigationBarItem(
-            backgroundColor: kPrimaryColor,
-            icon: Icon(Icons.settings),
-            title: Text('Settings'),
+            icon: _currentIndex == 3 ? shadowSetting : Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
       ),
