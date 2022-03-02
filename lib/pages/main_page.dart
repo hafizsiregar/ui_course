@@ -1,6 +1,6 @@
 import 'package:course_app/themes/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import '../widget/shadow.dart';
 import 'category_page.dart';
 import 'home_page.dart';
 import 'saved_page.dart';
@@ -39,6 +39,7 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: kPrimaryColor,
+        selectedItemColor: kWhiteColor,
         unselectedItemColor: Colors.grey,
           currentIndex: _currentIndex,
           onTap: _onItemTapped,

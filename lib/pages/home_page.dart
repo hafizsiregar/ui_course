@@ -1,6 +1,7 @@
 import 'package:course_app/themes/theme.dart';
 import 'package:course_app/widget/glassmorphism.dart';
 import 'package:flutter/material.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -65,10 +66,60 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: GlassMorphism(
-                  blur: _isBlur ? 20 : 0,
-                  opacity: 0.2,
+                child: GlassmorphicContainer(
+                  width: double.infinity,
+                  height: 60,
+                  borderRadius: 10,
+                  blur: 20,
+                  alignment: Alignment.center,
+                  border: 1,
+                  linearGradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Color(0xFFffffff).withOpacity(0.1),
+                          Color(0xFFFFFFFF).withOpacity(0.05),
+                        ],
+                        stops: [
+                          0.1,
+                          1,
+                        ]),
+                  borderGradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color(0xFFffffff).withOpacity(0.5),
+                        Color((0xFFFFFFFF)).withOpacity(0.5),
+                      ],
+                    ),
+                    child: TextFormField(
+                      cursorColor: kGreyColor,
+                  style: TextStyle(
+                    color: kWhiteColor.withOpacity(0.7),
+                  ),
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 1,
+                        color: Colors.transparent
+                      )),
+                    suffixIcon: Icon(
+                      Icons.search,
+                      color: kGreyColor,
+                    ),
+                    hintText: 'Search Course, Educators...',
+                    hintStyle: GoogleFonts.poppins(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: kGreyColor,
+                    ),
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
                 ),
+                )
               ),
               Container(
                 child: Align(
@@ -198,7 +249,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     children: <Widget>[
                       Container(
                         padding: EdgeInsets.all(15),
-                        height: 190,
+                        height: 195,
                         width: 150,
                         decoration: BoxDecoration(
                           color: kSecondaryColor,
@@ -237,7 +288,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       SizedBox(width: 10),
                       Container(
                         padding: EdgeInsets.all(15),
-                        height: 190,
+                        height: 195,
                         width: 150,
                         decoration: BoxDecoration(
                           color: kSecondaryColor,
@@ -276,7 +327,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       SizedBox(width: 10),
                       Container(
                         padding: EdgeInsets.all(15),
-                        height: 190,
+                        height: 195,
                         width: 150,
                         decoration: BoxDecoration(
                           color: kSecondaryColor,
